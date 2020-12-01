@@ -55,6 +55,9 @@ namespace AdventOfCode2020 {
 				}
 			}
 
+			// Sort the array
+			numbers.Sort();
+
 			// Create a boolean array of all acceptable values
 			bool[] arr = new bool[numbers[numbers.Count - 1] + 1];
 			foreach (int i in numbers) {
