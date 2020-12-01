@@ -32,6 +32,10 @@ namespace AdventOfCode2020 {
 		// For easy manipulation
 		int desired = 2020;
 
+		/// <summary>
+		/// Run the algorithm for Day 1
+		/// </summary>
+		/// <param name="Part2">Running with "true" will run the algorithm for Part 2.</param>
 		public Day1(bool Part2) {
 			if (Part2) {
 				Day1_2();
