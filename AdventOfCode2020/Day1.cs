@@ -16,11 +16,11 @@ Given the same list, find three integer values that sum to 2020 and find their p
 Solution:
 My solution for each involves creating a list and look-up table for the inputs.
 
-The first runs in a spacial-complexity of about O(n) and a time-complexity of O(n).
+The first runs in a time-complexity of O(n).
 - The program loops through the list and checks if the difference is "true" in the array.
 - If so, the pair was found.
 
-The second rnus in a spacial-complexity of about O(n) and a time-complexity of about O(n^2).
+The second runss in a time-complexity of about O(n^2).
 - The only difference with the first is that an identical loop is created between the
 	loop and the lookup section.
 

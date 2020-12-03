@@ -4,6 +4,28 @@ using System.IO;
 using System.Text;
 using System.Diagnostics;
 
+/*
+Day 1 Challenges:
+
+Part 1:
+Given a list, Input2.txt, count all lines whose "passwords" contain the proper amount of a given character.
+
+Part 2:
+Given the same list, count all lines whose "passwords" contain a character in exactly one of two positions.
+
+Solution:
+My solution for each involves only analyzing line-by line.
+
+The first runs in a time complexity of O(nm), n being the number of lines and m being the characters in a line.
+- The program removes all instances of the character and measures the lengths of each.
+
+The second runs in a time-complexity of O(n), n being the number of lines.
+- The second parses the line into the positions, given character, and code. Uses XOR (^).
+- The code avoids using substrings of the entire line and instead tries to look-up different positions.
+
+Limitations:
+- Both programs fail to work if the numerical inputs in a line are greater than or equal to 100.
+ */
 namespace AdventOfCode2020 {
 	class Day2 {
 
