@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 /*
 Day 1 Challenges:
@@ -38,7 +40,11 @@ namespace AdventOfCode2020 {
 		/// <param name="Part2">Running with "true" will run the algorithm for Part 2.</param>
 		public Day1(bool Part2) {
 			if (Part2) {
+				Stopwatch sw = new Stopwatch();
+				sw.Start();
 				Day1_2();
+				sw.Stop();
+				Console.WriteLine(sw.ElapsedMilliseconds);
 			} else {
 				Day1_1();
 			}
