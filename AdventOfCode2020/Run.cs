@@ -5,7 +5,7 @@ using System.IO;
 namespace AdventOfCode2020 {
 	class Run {
 		static void Main(string[] args) {
-			Day3 run = new Day3(false);
+			new Day5(true);
 		}
 	}
 }

@@ -43,18 +43,14 @@ namespace AdventOfCode2020 {
 				int row = 0;
 				int trees = 0;
 
-				// Required to get the right number
-				bool end = false;
+				do {
+					string line = reader.ReadLine();
 
-				for (string line = reader.ReadLine(); !end; line = reader.ReadLine()) {
 					if (line.Substring((row * 3) % line.Length, 1) == "#") {
 						trees++;
 					}
 					row++;
-
-					end = reader.EndOfStream;
-
-				}
+				} while (!reader.EndOfStream);
 
 				Console.WriteLine(trees);
 			}
@@ -67,10 +63,8 @@ namespace AdventOfCode2020 {
 				// Row variable
 				int i = 0;
 
-				// Required to get the right number
-				bool end = false;
-
-				for (string line = reader.ReadLine(); !end; line = reader.ReadLine()) {
+				do {
+					string line = reader.ReadLine();
 
 					// Right 1, Down 1
 					if (line.Substring(i % line.Length, 1) == "#") {
@@ -100,8 +94,7 @@ namespace AdventOfCode2020 {
 					}
 
 					i++;
-					end = reader.EndOfStream;
-				}
+				} while (!reader.EndOfStream);
 
 				// Calculate the product
 				ulong prod = (ulong)trees[0];
