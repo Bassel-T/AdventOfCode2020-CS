@@ -10,7 +10,11 @@ namespace AdventOfCode2020 {
 
 		public Day7(bool Part2) { 
 			if (Part2) {
+				System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+				sw.Start();
 				Day7_2();
+				sw.Stop();
+				Console.WriteLine(sw.Elapsed);
 			} else {
 				Day7_1();
 			}
