@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Diagnostics;
 
 namespace AdventOfCode2020 {
 	class Run {
 		static void Main(string[] args) {
-			new Day8(true);
+			Stopwatch sw = new Stopwatch();
+			sw.Start();
+			new Day9(true);
+			sw.Stop();
+			Console.WriteLine(sw.Elapsed);
 		}
 	}
 }
