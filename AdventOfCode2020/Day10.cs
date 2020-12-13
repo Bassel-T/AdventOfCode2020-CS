@@ -114,7 +114,7 @@ namespace AdventOfCode2020 {
 			int[] data = File.ReadLines(Path.Combine(Directory.GetCurrentDirectory(), "Input10.txt"))
 				.Select(x => int.Parse(x)).ToArray();
 			Array.Sort(data);
-			ulong[] steps = new ulong[] { 1, 1, 1, 2, 4, 7, 13, 24};
+			ulong[] steps = new ulong[] {1, 1, 1, 2, 4, 7, 13, 24};
 
 			ulong count = 1;
 			for (int i = 0; i < data.Length; i++) {
@@ -129,9 +129,8 @@ namespace AdventOfCode2020 {
 					}
 				}
 
-				if (step > 1) {
-					count *= steps[step];
-				}
+				count *= steps[step];
+
 			}
 
 			Console.WriteLine(count);
