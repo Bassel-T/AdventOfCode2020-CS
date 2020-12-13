@@ -7,6 +7,7 @@ using System.Linq;
 namespace AdventOfCode2020 {
 	class Day11 {
 		
+		// Run part based on desired output
 		public Day11(bool Part2) {
 			if (Part2) {
 				Day11_2();
@@ -15,15 +16,18 @@ namespace AdventOfCode2020 {
 			}
 		}
 
+		// Find all the variables 
 		int GetOccupied(string[] input, int i, int j) {
 			int toReturn = 0;
 			for (int x = i - 1; x < i + 2; x++) {
 				for (int y = j - 1; y < j + 2; y++) {
 					if (x < 0 || y < 0 || x >= input.Length || y >= input[x].Length || (x == i && j == y)) {
+						// Out of bounds or is current seat
 						continue;
 					}
 
 					if (input[x].Substring(y, 1) == "#") {
+						// Seat is full, increment
 						toReturn++;
 					}
 				}
@@ -33,15 +37,18 @@ namespace AdventOfCode2020 {
 		}
 
 		void Day11_1() {
+			// Initialize variables & Input
 			string[] input = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "Input11.txt"));
 			bool equal = false;
 			int count = 0;
 
 			do {
+				// Copy current output
 				string[] newInput = (string[])input.Clone();
 				count = 0;
 				for (int i = 0; i < input.Length; i++) {
 					string line = "";
+					// Generate the line based on previous iteration
 					for (int j = 0; j < input[i].Length; j++) {
 						int amount = GetOccupied(input, i, j);
 
@@ -64,13 +71,16 @@ namespace AdventOfCode2020 {
 						}
 					}
 
+					// Input next iteration
 					newInput[i] = line;
 				}
 
+				// Check if the iteration is unchanged
 				equal = Enumerable.SequenceEqual(newInput, input);
 				input = (string[])newInput.Clone();
 			} while (!equal);
 
+			// Count all filled seats
 			int secondCount = 0;
 			foreach (string line in input) {
 				secondCount += Array.FindAll(line.ToCharArray(), x => x == '#').Length;
@@ -79,6 +89,7 @@ namespace AdventOfCode2020 {
 			Console.WriteLine(secondCount);
 		}
 		
+		// Check distances in straight lines
 		int FarCheck(string[] input, int i, int j) {
 			int toReturn = 0;
 
@@ -174,11 +185,13 @@ namespace AdventOfCode2020 {
 		}
 
 		void Day11_2() {
+			// Get user input
 			string[] input = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "Input11.txt"));
 			bool equal = false;
 			int count = 0;
 
 			do {
+				// Clone the input
 				string[] newInput = (string[])input.Clone();
 				count = 0;
 				for (int i = 0; i < input.Length; i++) {
@@ -186,6 +199,7 @@ namespace AdventOfCode2020 {
 					for (int j = 0; j < input[i].Length; j++) {
 						int amount = FarCheck(input, i, j);
 
+						// Find data for the line
 						if (input[i].Substring(j, 1) == ".") {
 							line += ".";
 						} else if (input[i].Substring(j, 1) == "L") {
@@ -208,10 +222,12 @@ namespace AdventOfCode2020 {
 					newInput[i] = line;
 				}
 
+				// Check for equality
 				equal = Enumerable.SequenceEqual(newInput, input);
 				input = (string[])newInput.Clone();
 			} while (!equal);
 
+			// Count full seats
 			int secondCount = 0;
 			foreach (string line in input) {
 				secondCount += Array.FindAll(line.ToCharArray(), x => x == '#').Length;
