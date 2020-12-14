@@ -8,7 +8,7 @@ namespace AdventOfCode2020 {
 		static void Main(string[] args) {
 			Stopwatch sw = new Stopwatch();
 			sw.Start();
-			new Day13(true);
+			new Day14(true);
 			sw.Stop();
 			Console.WriteLine(sw.Elapsed);
 		}
